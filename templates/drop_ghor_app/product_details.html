@@ -1,0 +1,68 @@
+{% extends "drop_ghor_app/base.html" %}
+{%load static%}
+{% block titel %}Product Details{% endblock %}
+{% block content %}
+<div class="container-fluid" style="margin-top: 80px;">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <img src="{{pro.product_pic.url}}" class="img-fluid" alt="product_img"
+                style="border:1px solid black;border-radius: 20px;">
+            <h4 class="text-center fw-bold" style="margin-top: 10px;">Product rating:{{pro.star}}<span class="text-warning"><i
+                        class="fa fa-star"></i></span></h4>
+        </div>
+        <div class="col-12 col-md-8" style="border: 1px solid;border-radius: 5px">
+            <div class="row">
+                <div class="container text-center">
+                    <h1>{{pro.name|capfirst}}</h1>
+                </div>
+                <div class="container-fluid " >
+                    <h4 class="lh-base">{{pro.description|capfirst}}</h4>
+                </div>
+                <div class="container-fluid text-center" style="margin-top: 20px;">
+                    <span class="fs-3">Product Attribute Prices</span>
+                </div>
+                <div class="container-fluid " style="background-color:rgb(221, 215, 201);border-top-left-radius: 30px;border-top-right-radius: 30px;">
+                    <form action="/cart">
+                    <input type="hidden" name="pro_id" value="{{pro.id}}">
+
+                        {% for p in pp %}
+                        <div class="row">
+                            <div class="container pt-3 col-7 col-md-4">
+                                <h4>{{p.att}}</h4>
+                            </div>
+                            <div class="container pt-3 col-3 col-md-3">
+                                <h4><span id="{{forloop.counter}}">{{p.price}}</span><span>৳</span></h4>
+                            </div>
+                            <div class="container pt-3 col-3 col-md-3">
+                                <a class="btn btn-secondary btn-sm" onclick="increment({{forloop.counter}},{{p.price}})">+</a>  
+                                    <span id="counting{{forloop.counter}}">1</span>
+    
+                                    
+                                    
+                                <a class="btn btn-secondary btn-sm" onclick="decrement({{forloop.counter}},{{p.price}})">-</a>
+                            </div>
+                            <span class="form-check pt-3 col-2 col-md-2">
+                                <input class="form-check-input" required type="radio" value="{{p.id}},1" name="attid" id="quentity{{forloop.counter}}">
+                                <label class="form-check-label fw-bold" for="">
+                                </label>
+                            </span>
+                        </div>
+                        
+                        {% endfor %}
+
+                        <div class="text-end text-center">
+                            <button type="submit" class="btn btn-warning">Add TO Cart <i class=" fas fa-cart-plus fa-lg" style="color: #0a0a0a;"></i> </button>
+                          </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'drop_ghor_app/js/cart.js' %}"></script>
+{% endblock script %}

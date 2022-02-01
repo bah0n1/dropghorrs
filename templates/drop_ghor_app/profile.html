@@ -1,0 +1,91 @@
+{% extends "drop_ghor_app/base.html" %}
+{%load static%}
+{% block titel %}Profile{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+      <div class="container text-center" style="margin-top: 80px;">
+     <h3>Welcome <span class="text-capitalize">{{request.user.customer.name}}</span></h3>
+   
+      </div>
+     <div class="col-sm-2 border-end">
+      <ul class="list-unstyled">
+       <li class="d-grid"><a href="{% url 'profile' %}" class="btn {{ctn}}"><div><i class="fas fa-id-card"></div></i>My Profile Info</a></li>
+       <li class="d-grid"><a href={% url 'changepassword' %} class="btn {{btn}}"><i class="fas fa-key"></i>ChangePassword</a></li>
+      </ul>
+     </div>
+     <div class="col-sm-8 offset-sm-1">
+      {% if messages %}
+      
+      {% for mess in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>GOOD JOB! </strong>{{mess}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <br>
+      </div>
+      {% endfor %}
+    {% endif %} 
+   <br>
+   
+   
+       <div class="container">
+        <hr>
+        {% if  pr %}
+        <form action="" method="POST" novalidate class="shadow p-5" style="border-radius: 40px;">
+          <div class="form-group mb-3">
+            <label for="id_name">First name:</label> 
+            <input type="text" name="name" value="{{cus.name|capfirst}}" class="form-control" maxlength="30" required="" id="id_name" disabled> 
+            
+         </div>
+         <div class="form-group mb-3">
+          <label for="id_name">Number:</label> 
+          <input type="text" name="name" value="{{cus.number}}"" class="form-control" maxlength="30" required="" id="id_name" disabled> 
+          
+       </div>
+       <div class="form-group mb-3">
+        <label for="id_name">Address:</label> 
+        <input type="text" name="name" value="{{cus.locality|capfirst}}"" class="form-control" maxlength="30" required="" id="id_name" disabled> 
+        
+     </div>
+     <div class="form-group mb-3">
+      <label for="id_name">City:</label> 
+      <input type="text" name="name" value="{{cus.city|capfirst}}" class="form-control" maxlength="30" required="" id="id_name" disabled> 
+      
+   </div>
+    <div class="text-center"><a href="{% url 'profile_edit' %}" class="btn btn-warning"><i class="fas fa-user-cog"></i>Edit Profile</a>
+
+         
+    </form>
+
+
+        {% else %}
+        <form action="" method="POST" novalidate class="shadow p-5" style="border-radius: 40px;">
+         {% csrf_token %}
+     
+          
+           {% for f in fm %}
+              <div class="form-group mb-3">
+                 {{f.label_tag}} {{f}} <small class="text-danger">{{f.errors|striptags}}</small>
+              </div>
+           {% endfor %}
+           <div class="text-center">
+           <input type="submit" value="Submit" class="btn btn-primary">
+           </div>
+           <br>
+           <div class="text-center text-primary fw-bold"><small>Help ? <span class="text-danger">we are always here for your help!</span></small></div>
+             
+         {% if fm.non_field_errors %}
+         {% for error in fm.non_field_errors %}
+         <p class="alert alert-danger my-3">{{error}}</p>
+         {% endfor %}
+         {% endif %}
+        </form>
+        {% endif %}
+       </div>
+      
+       
+      
+     </div>
+    </div>
+   </div>   
+{% endblock %}

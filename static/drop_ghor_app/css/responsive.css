@@ -1,0 +1,100 @@
+/* navbar start*/
+
+@media (max-width:360px){
+    /* 2 Navbar */
+    .navbar-brand{
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .img-drop{margin-left:50%;}
+    
+    }
+
+/* navbar exit */
+
+
+/* index page banner start  */
+
+@media (min-width:78.125rem){
+    
+    .home-banner{
+        bottom: 12.5rem;
+        right: 40.647rem;
+        
+    }}
+
+@media (max-width:61.938rem){
+    
+    .home-banner{
+        bottom: 3.125rem;
+        right: 40.647rem;
+            
+    }
+    .home-banner .home-banner-text h1{
+        font-size: 3.75rem;
+    }
+    .home-banner .home-banner-text h2{
+        font-size: 1.563rem;
+    }
+    .home-banner .home-banner-text .btn-danger{
+        padding:0.5rem 1.5rem;
+    }}
+
+@media (min-width:61.938rem) and (max-width:78.063rem){
+    
+    .home-banner{
+        bottom: 3.125rem;
+        right: 40.647rem;
+                
+    }}
+        
+@media (max-width:51.438rem) and (min-width:39.875rem) {
+    
+    .home-banner .home-banner-text h1{
+        font-size: 1.75rem;
+    }
+    .home-banner .home-banner-text h2{
+        font-size: 0.938rem;
+    }
+    .home-banner .home-banner-text .btn-danger{
+        padding:0rem 0rem;
+        margin-top: 0px;
+        /* font-size: 01.75rem; */
+    }}
+@media(max-width:39.813rem){
+    /* .carousel .carousel-indicators{top:10.688rem}
+        .home-banner{
+        bottom: -0.625rem;
+    } */
+    .home-banner{
+        bottom: 1.563rem;
+        right: 20%;    
+    }
+    .home-banner .home-banner-text h1{
+        font-size: 1rem;
+        margin-bottom: 0px;
+    }
+    .home-banner .home-banner-text h2{
+        font-size: 0.75rem;
+        margin-bottom: 1px;
+    }
+    .home-banner .home-banner-text .btn-outline-danger{
+        padding-left: 0.313rem;
+        padding-right: 0.313rem;
+        padding-top: 0.063rem;
+        padding-bottom: 0.063rem;
+        font-size: 0.625rem;
+                 
+    }}
+
+/* index page banner end  */
+
+/* product cards responsive */
+@media (min-width:22.5rem) and (max-width:35.938rem){
+    .res{
+        padding-left: 0.15rem;
+        padding-right: 0.15rem;
+    }
+}

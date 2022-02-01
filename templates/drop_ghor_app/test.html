@@ -1,0 +1,12 @@
+{% extends "drop_ghor_app/base.html" %}
+{%load static%}
+{% block titel %}LOGIN PAGE{% endblock %}
+{% block content %}
+<form action="" method="POST" novalidate class="shadow p-5" style="border-radius: 40px;">
+    {% csrf_token %}
+    {{fm}}
+    <div class="text-center">
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </div>
+</form>
+{% endblock %}

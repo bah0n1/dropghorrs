@@ -1,0 +1,49 @@
+/* universal styling for cards */
+
+/* body{
+    background-color: #000;
+} */
+
+.card-container{
+    margin-top: 110px !important;
+}
+
+.card{
+    border: none;
+    outline: none;
+    background-color: white;
+    border-radius: 20px;
+    transition: transform .3s;
+}
+
+.card:hover{
+    transform:translateY(-15px);
+    transition: transform .3s;
+}
+.text1-card{
+    font-size: 13px;
+    /* color: #bcbcbc; */
+    color: #5f5f5f;
+}
+.info{
+    line-height: 17px;
+}
+.star{
+    color: #fbc02d;
+}
+.cost span{
+    color: #fb3531;
+    font-weight: bold;
+    font-size: 20px;
+}
+.shoe{
+    background: #dc3545;
+}
+.shoe:hover{
+    opacity: .8;
+}
+.cursor{
+    cursor: pointer;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
